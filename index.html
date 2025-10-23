@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ngọc Trầm Nguyễn</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #ffffff;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --accent: #D97706; /* Vàng hổ phách/Cam */
+            --dark-accent: #7F1D1D; /* Đỏ đô */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+        }
+        main {
+            padding-top: 0px; /* Bỏ padding-top vì Hero đã là min-h-screen */
+        }
+        h1, h2, h3 {
+            font-weight: 900;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+            color: white; /* Màu trắng trên Hero Section */
+        }
+
+        /* --- Navigation Bar Styling --- */
+        #main-header.scrolled {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        #main-header.scrolled .nav-link, #main-header.scrolled .logo-text {
+            color: var(--text-primary);
+        }
+        #main-header.scrolled .nav-link::after {
+            background-color: var(--accent);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white; /* Màu trắng trên Hero Section */
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .clip-card {
+            background-color: #f9fafb;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .clip-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+        }
+
+        /* --- Hiệu ứng xuất hiện cho các Section sau Hero --- */
+        [data-animation] {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        [data-animation="fade-in-up"] { transform: translateY(30px); }
+        [data-animation="fade-in-left"] { transform: translateX(-30px); }
+        [data-animation="fade-in-right"] { transform: translateX(30px); }
+        [data-animation="zoom-in"] { transform: scale(0.95); }
+
+        [data-animation].is-visible {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+        
+        /* --- HIỆU ỨNG RIÊNG CHO HERO SECTION --- */
+        
+        /* Hiệu ứng trượt và mờ dần cho chữ */
+        @keyframes slideInUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-animated-text {
+            /* Sử dụng ease-out mạnh mẽ hơn cho hiệu ứng dứt khoát */
+            animation: slideInUpFade 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; 
+            opacity: 0; 
+        }
+
+        /* Hiệu ứng chuyển động nền (BACKGROUND PAN) */
+        @keyframes background-pan {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Màu nền giống ảnh mẫu: Gradient từ đỏ sang cam */
+        .hero-bg {
+            background: linear-gradient(135deg, var(--dark-accent) 0%, var(--accent) 50%, var(--dark-accent) 100%);
+            background-size: 300% 300%; 
+            animation: background-pan 25s ease infinite; /* Áp dụng hiệu ứng nền */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation - ĐÃ CẬP NHẬT FIXED HEADER COLOR LOGIC -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold tracking-tight logo-text text-white transition-colors duration-300">Ngọc Trầm</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link">Giới Thiệu</a>
+                <a href="#stats" class="nav-link">Đối Tác</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#schedule" class="nav-link">Phong Cách</a>
+                <a href="#contact" class="nav-link">Liên Hệ</a>
+            </div>
+                <a href="#contact" class="md:ml-auto px-6 py-2 bg-white text-gray-800 font-semibold rounded-full hover:bg-amber-300 transition-all duration-300 transform hover:-translate-y-0.5 shadow-md">
+                    Liên Hệ Hợp Tác
+                </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section - ĐÃ ÁP DỤNG STYLE VÀ ANIMATE MỚI -->
+        <section id="home" class="hero-bg min-h-screen flex items-center overflow-hidden text-white relative">
+            <div class="container mx-auto px-6 py-24">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Text Column - Giữ nguyên logic hiệu ứng chữ của mẫu gốc -->
+                    <div class="text-center md:text-left">
+                        <p class="text-2xl md:text-3xl font-light text-amber-300 hero-animated-text" style="animation-delay: 0.3s;">
+                            Hey, Tôi là
+                        </p>
+                        <h1 id="main-title" class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-none tracking-tight mb-4">
+                            <!-- JS sẽ điền tiêu đề và áp dụng hiệu ứng -->
+                        </h1>
+                        <p class="text-lg text-gray-300 max-w-2xl mx-auto md:mx-0 hero-animated-text" style="animation-delay: 1.5s;">
+                            Chuyên Gia Livestream Bán Hàng | Tối ưu hóa Tỷ lệ Chuyển đổi | Xây dựng Niềm tin với Khách hàng
+                        </p>
+                        <div class="mt-8 flex justify-center md:justify-start space-x-4">
+                            <a href="#portfolio" class="px-6 py-2 bg-white text-gray-800 font-semibold rounded-full hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 hero-animated-text" style="animation-delay: 1.7s;">
+                                Xem Portfolio
+                            </a>
+                            <a href="#contact" class="px-6 py-2 bg-amber-500 text-white font-semibold rounded-full hover:bg-amber-600 transition-all duration-300 transform hover:scale-105 hero-animated-text" style="animation-delay: 1.8s;">
+                                Liên Hệ Ngay
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Image Column (Silhouette) -->
+                    <div class="flex justify-center md:justify-end" data-animation="fade-in-right">
+                        <img 
+                            src="https://placehold.co/400x500/000000/000000?text=Host" 
+                            alt="Hình ảnh Host" 
+                            class="rounded-lg shadow-2xl w-full max-w-sm hero-animated-text"
+                            style="animation-delay: 1.0s;"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-gray-50 overflow-hidden">
+            <div class="container mx-auto px-6 text-center" data-animation="fade-in-up">
+                <h2 class="text-3xl md:text-4xl mb-6">Đối Tác Livestream Đáng Tin Cậy Của Bạn</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 text-lg leading-relaxed">
+                    Xin chào các nhãn hàng, tôi là Ngọc Trầm. Với hơn 4 năm kinh nghiệm trong lĩnh vực livestream thương mại, tôi chuyên biến những buổi phát sóng trực tiếp thành các kênh bán hàng hiệu quả. Tôi không chỉ giới thiệu sản phẩm, mà còn xây dựng câu chuyện, tạo dựng niềm tin và thúc đẩy hành động mua hàng thông qua khả năng tương tác tự nhiên và sự am hiểu sâu sắc về tâm lý khách hàng.
+                </p>
+            </div>
+        </section>
+
+        <!-- Key Stats Section (Đối Tác) -->
+        <section id="stats" class="py-20 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl text-center mb-12" data-animation="fade-in-up">Đối Tác Đã Hợp Tác</h2>
+                <div class="max-w-4xl mx-auto flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
+                    <img src="https://placehold.co/150x60/cccccc/333333?text=Brand+A" alt="Logo Brand A" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-animation="zoom-in" style="transition-delay: 100ms;">
+                    <img src="https://placehold.co/150x60/cccccc/333333?text=Brand+B" alt="Logo Brand B" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-animation="zoom-in" style="transition-delay: 200ms;">
+                    <img src="https://placehold.co/150x60/cccccc/333333?text=Brand+C" alt="Logo Brand C" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-animation="zoom-in" style="transition-delay: 300ms;">
+                    <img src="https://placehold.co/150x60/cccccc/333333?text=Brand+D" alt="Logo Brand D" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-animation="zoom-in" style="transition-delay: 400ms;">
+                    <img src="https://placehold.co/150x60/cccccc/333333?text=Brand+E" alt="Logo Brand E" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-animation="zoom-in" style="transition-delay: 500ms;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Portfolio Section -->
+        <section id="portfolio" class="py-20 bg-gray-50 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl text-center mb-12" data-animation="fade-in-up">Khoảnh Khắc Livestream</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Video 1 -->
+                    <div class="clip-card rounded-lg" data-animation="fade-in-up" style="transition-delay: 100ms;">
+                        <div class="aspect-video">
+                             <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg">Tương tác sôi nổi với 10k người xem</h3>
+                            <p class="text-sm text-gray-500">Nhãn hàng: Beauty Glow</p>
+                        </div>
+                    </div>
+                    <!-- Video 2 -->
+                    <div class="clip-card rounded-lg" data-animation="fade-in-up" style="transition-delay: 200ms;">
+                        <div class="aspect-video">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg">Unbox và review sản phẩm công nghệ</h3>
+                            <p class="text-sm text-gray-500">Nhãn hàng: TechHome</p>
+                        </div>
+                    </div>
+                    <!-- Video 3 -->
+                    <div class="clip-card rounded-lg" data-animation="fade-in-up" style="transition-delay: 300ms;">
+                         <div class="aspect-video">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg">Chốt đơn "cháy máy" trong phiên live thời trang</h3>
+                            <p class="text-sm text-gray-500">Nhãn hàng: Fashio VN</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section (Phong Cách) -->
+        <section id="schedule" class="py-20 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl text-center mb-12" data-animation="fade-in-up">Hình Ảnh Cá Nhân & Phong Cách</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+                    <div class="aspect-square" data-animation="zoom-in" style="transition-delay: 100ms;">
+                        <img src="https://placehold.co/400x400/e0e0e0/333?text=Style+1" alt="Hình ảnh cá nhân 1" class="w-full h-full object-cover rounded-lg transition-all duration-300 transform hover:scale-105">
+                    </div>
+                    <div class="aspect-square" data-animation="zoom-in" style="transition-delay: 200ms;">
+                        <img src="https://placehold.co/400x400/d0d0d0/333?text=Style+2" alt="Hình ảnh cá nhân 2" class="w-full h-full object-cover rounded-lg transition-all duration-300 transform hover:scale-105">
+                    </div>
+                    <div class="aspect-square" data-animation="zoom-in" style="transition-delay: 300ms;">
+                        <img src="https://placehold.co/400x400/c0c0c0/333?text=Style+3" alt="Hình ảnh cá nhân 3" class="w-full h-full object-cover rounded-lg transition-all duration-300 transform hover:scale-105">
+                    </div>
+                    <div class="aspect-square" data-animation="zoom-in" style="transition-delay: 400ms;">
+                        <img src="https://placehold.co/400x400/b0b0b0/333?text=Style+4" alt="Hình ảnh cá nhân 4" class="w-full h-full object-cover rounded-lg transition-all duration-300 transform hover:scale-105">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-50 overflow-hidden">
+            <div class="container mx-auto px-6 text-center" data-animation="fade-in-up">
+                <h2 class="text-3xl md:text-4xl mb-6">Hãy Cùng Tạo Nên Một Chiến Dịch Bùng Nổ</h2>
+                <p class="max-w-2xl mx-auto text-gray-600 text-lg mb-8">
+                    Tôi rất mong được lắng nghe về sản phẩm và mục tiêu của bạn. Hãy gửi email để chúng ta có thể thảo luận chi tiết hơn về kế hoạch hợp tác.
+                </p>
+                <a href="mailto:business.ngoctram@email.com" class="inline-block px-8 py-3 bg-amber-500 text-white font-bold rounded-full text-lg hover:bg-amber-600 transition-all duration-300 transform hover:-translate-y-1 shadow-lg">
+                    business.ngoctram@email.com
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-amber-500 transition-colors">Facebook</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">TikTok</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">YouTube</a>
+                <a href="#" class="hover:text-amber-500 transition-colors">Instagram</a>
+            </div>
+            <p>&copy; 2025 Ngọc Trầm Nguyễn. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- LOGIC GOM GÓP VÀ TÙY CHỈNH TỪ CÁC PHIÊN BẢN TRƯỚC ---
+
+        // 1. Logic Hiệu ứng Chữ Staggered cho Hero Section
+        const mainTitleElement = document.getElementById('main-title');
+        // Thay đổi tiêu đề ở đây nếu bạn muốn!
+        const titleText = "Livestream\nSales\nExpert"; 
+        const titleLines = titleText.split('\n');
+        
+        let titleHTML = '';
+        let baseDelay = 0.5; // Bắt đầu sau khi nav hiện
+        
+        titleLines.forEach((line, lineIndex) => {
+            const words = line.split(' ');
+            titleHTML += `<div class="block overflow-hidden">`;
+            words.forEach((word, wordIndex) => {
+                // Hiệu ứng delay tuần tự cho từng từ
+                const delay = baseDelay + (wordIndex * 0.1) + (lineIndex * 0.3); 
+                titleHTML += `<span class="inline-block mr-4 hero-animated-text" style="animation-delay: ${delay}s;">${word}</span>`;
+            });
+            titleHTML += `</div>`;
+        });
+        
+        mainTitleElement.innerHTML = titleHTML;
+
+        // 2. Logic Hiệu ứng Xuất hiện khi Cuộn (Intersection Observer)
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('[data-animation]');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Tùy chọn: Bỏ quan sát sau khi đã hiển thị để tối ưu
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // 3. Logic Đổi Màu Header khi Cuộn (Để lộ Header phía dưới Hero)
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > window.innerHeight - 80) { // Khi cuộn qua gần hết Hero Section
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
