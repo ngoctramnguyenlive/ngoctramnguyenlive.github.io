@@ -1,125 +1,75 @@
-<!doctype html>
-<html lang="vi" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ngọc Trầm — Portfolio</title>
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font & AOS -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <!-- CSS riêng -->
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ngọc Trâm Nguyễn</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+<body>
 
-<body class="antialiased text-[#0F1724] bg-[#FBF7F4]">
-
-  <!-- HEADER -->
-  <header id="main-header" class="fixed w-full z-50 bg-[#FBF7F4]/70 backdrop-blur-md shadow-sm">
-    <nav class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20 py-4 flex items-center justify-between">
-      <a href="#home" class="font-semibold text-lg">Ngọc Trầm</a>
-
-      <div class="hidden md:flex items-center gap-8 text-sm">
-        <a href="#about" class="hover:text-[#5fa8d3]">Giới Thiệu</a>
-        <a href="#partners" class="hover:text-[#5fa8d3]">Đối Tác</a>
-        <a href="#portfolio" class="hover:text-[#5fa8d3]">Portfolio</a>
-        <a href="#gallery" class="hover:text-[#5fa8d3]">Phong Cách</a>
-        <a href="#contact" class="hover:text-[#5fa8d3]">Liên Hệ</a>
+  <!-- 🌸 SECTION HERO -->
+  <section id="home">
+    <div class="content">
+      <div class="image">
+        <img src="images/profile.png" alt="Ngọc Trâm Nguyễn">
       </div>
-
-      <a href="#contact" class="ml-4 px-4 py-2 rounded-full bg-[#5fa8d3] text-white text-sm shadow-sm hover:scale-105 transition">
-        Liên Hệ Hợp Tác
-      </a>
-    </nav>
-  </header>
-
-  <!-- ⚡ Scroll container (quan trọng cho snap) -->
-  <main class="scroll-container">
-
-    <!-- 🌸 HERO -->
-    <section id="home" class="snap-start">
-      <div class="content">
-        <div class="text" data-aos="fade-right">
-          <p class="text-[#5fa8d3] mb-3 font-medium">Xin chào, Tôi là</p>
-          <h1>Ngọc<br>Trầm,<br>Nguyễn</h1>
-          <p>Chuyên Gia Livestream Bán Hàng | Tối ưu hóa Tỷ lệ Chuyển đổi | Xây dựng Niềm tin với Khách hàng</p>
-          <div class="flex gap-4 mt-4 justify-center md:justify-start">
-            <a href="#portfolio" class="btn">Xem Portfolio</a>
-            <a href="#contact" class="btn" style="background:#fff;color:#5fa8d3;border:2px solid #5fa8d3;">Liên Hệ Ngay</a>
-          </div>
-        </div>
-        <div data-aos="fade-left" class="flex justify-center">
-          <img src="assets/host.png" alt="Ngọc Trầm">
+      <div class="text">
+        <h1>Ngọc Trâm Nguyễn</h1>
+        <p>Chuyên gia livestream bán hàng - đào tạo và xây dựng thương hiệu cá nhân online.</p>
+        <div class="buttons">
+          <a href="#portfolio" class="btn">Xem Portfolio</a>
+          <a href="#contact" class="btn btn-outline">Liên hệ ngay</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 💬 GIỚI THIỆU -->
-    <section id="about" class="snap-start">
-      <h2>Đối Tác Livestream Đáng Tin Cậy</h2>
-      <p>Xin chào các nhãn hàng, tôi có kinh nghiệm thực chiến trong việc dẫn dắt các buổi livestream. Nhiệt huyết học hỏi và phát triển bản thân, tôi mong muốn được làm việc trong môi trường chuyên nghiệp, năng động để thu thập kiến thức quý báu và kinh nghiệm thực tế.</p>
-    </section>
+  <!-- 🌼 GIỚI THIỆU -->
+  <section id="about">
+    <h2>Giới thiệu</h2>
+    <p>Ngọc Trâm Nguyễn là chuyên gia trong lĩnh vực livestream bán hàng, giúp hàng nghìn cá nhân xây dựng thương hiệu cá nhân và chốt đơn hiệu quả.</p>
+  </section>
 
-    <!-- 🤝 ĐỐI TÁC -->
-    <section id="partners" class="snap-start">
-      <h2>Đối Tác Đã Hợp Tác</h2>
-      <div class="partners-grid">
-        <img src="assets/partners/p1.png" alt="">
-        <img src="assets/partners/p2.png" alt="">
-        <img src="assets/partners/p3.png" alt="">
-        <img src="assets/partners/p4.png" alt="">
-        <img src="assets/partners/p5.png" alt="">
-        <img src="assets/partners/p6.png" alt="">
-        <img src="assets/partners/p7.png" alt="">
-        <img src="assets/partners/p8.png" alt="">
-        <img src="assets/partners/p9.png" alt="">
-        <img src="assets/partners/p10.png" alt="">
-        <img src="assets/partners/p11.png" alt="">
-        <img src="assets/partners/p12.png" alt="">
-      </div>
-    </section>
+  <!-- 🌟 ĐỐI TÁC -->
+  <section id="partners">
+    <h2>Đối tác</h2>
+    <div class="partners-grid">
+      <img src="images/p1.png" alt="">
+      <img src="images/p2.png" alt="">
+      <img src="images/p3.png" alt="">
+      <img src="images/p4.png" alt="">
+      <img src="images/p5.png" alt="">
+      <img src="images/p6.png" alt="">
+      <img src="images/p7.png" alt="">
+      <img src="images/p8.png" alt="">
+      <img src="images/p9.png" alt="">
+      <img src="images/p10.png" alt="">
+      <img src="images/p11.png" alt="">
+      <img src="images/p12.png" alt="">
+    </div>
+  </section>
 
-    <!-- 🎥 PORTFOLIO -->
-    <section id="portfolio" class="snap-start">
-      <h2>Khoảnh Khắc Livestream</h2>
-      <div class="video-grid">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-      </div>
-    </section>
+  <!-- 🎬 VIDEO -->
+  <section id="videos">
+    <h2>Khoảnh khắc nổi bật</h2>
+    <div class="video-grid">
+      <video src="videos/v1.mp4" autoplay muted loop></video>
+      <video src="videos/v2.mp4" autoplay muted loop></video>
+      <video src="videos/v3.mp4" autoplay muted loop></video>
+    </div>
+  </section>
 
-    <!-- 🖼️ GALLERY -->
-    <section id="gallery" class="snap-start">
-      <h2>Hình Ảnh Cá Nhân & Phong Cách</h2>
-      <div class="gallery-grid">
-        <img src="assets/gallery/g1.jpg" alt="">
-        <img src="assets/gallery/g2.jpg" alt="">
-        <img src="assets/gallery/g3.jpg" alt="">
-        <img src="assets/gallery/g4.jpg" alt="">
-      </div>
-    </section>
+  <!-- 🖼️ GALLERY -->
+  <section id="gallery">
+    <h2>Bộ sưu tập</h2>
+    <div class="gallery-grid">
+      <img src="images/g1.jpg" alt="">
+      <img src="images/g2.jpg" alt="">
+      <img src="images/g3.jpg" alt="">
+      <img src="images/g4.jpg" alt="">
+    </div>
+  </section>
 
-    <!-- ✉️ CONTACT -->
-    <section id="contact" class="snap-start">
-      <h2>Hãy Cùng Tạo Nên Một Chiến Dịch Bùng Nổ</h2>
-      <p>Tôi rất mong được lắng nghe về sản phẩm và mục tiêu của bạn.</p>
-      <a href="mailto:business.ngoctram@email.com" class="btn">business.ngoctram@email.com</a>
-    </section>
-  </main>
-
-  <footer class="py-8 text-center text-gray-500">
-    &copy; 2025 Ngọc Trầm Nguyễn. Mọi quyền được bảo lưu.
-  </footer>
-
-  <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true });
-  </script>
 </body>
 </html>
