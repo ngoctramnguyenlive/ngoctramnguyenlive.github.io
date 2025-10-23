@@ -1,5 +1,5 @@
-/* 🌸 Import font tiếng Việt không lỗi */
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
+/* 🌸 Import font tiếng Việt chuẩn, không lỗi dấu */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 /* 🌈 Reset & cơ bản */
 * {
@@ -10,13 +10,13 @@
 }
 
 body {
-  font-family: 'Be Vietnam Pro', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: #333;
   background-color: #FBF7F4;
   line-height: 1.6;
 }
 
-/* 🪄 HERO section toàn màn hình */
+/* 🪄 HERO section chiếm trọn 1 màn hình */
 #home {
   height: 100vh;
   display: flex;
@@ -44,9 +44,10 @@ body {
 #home h1 {
   font-size: 3.5rem;
   font-weight: 800;
-  color: #222;
+  color: #1a1a1a;
   line-height: 1.2;
   margin-bottom: 1rem;
+  letter-spacing: -0.5px;
 }
 
 #home p {
@@ -77,15 +78,16 @@ body {
   filter: drop-shadow(0 10px 30px rgba(0,0,0,0.15));
 }
 
-/* 📖 Giới thiệu + Đối tác */
+/* 📖 Các section sau — GIỮ KÍCH THƯỚC BÌNH THƯỜNG */
 section {
   padding: 6rem 1.5rem;
 }
 
-#about, #partners {
+#about, #partners, #videos, #gallery {
   background-color: white;
 }
 
+/* Tiêu đề các section */
 #about h2, #partners h2, #videos h2, #gallery h2 {
   font-size: 2.25rem;
   font-weight: 700;
