@@ -56,4 +56,16 @@ header a.bg-\[\#5fa8d3\]:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 14px rgba(95,168,211,0.3);
 }
+/* Hiệu ứng gradient hover hiện đại */
+a.bg-\[\#5fa8d3\] {
+  background: linear-gradient(90deg, #5fa8d3, #6fc8d9);
+  background-size: 200% 100%;
+  transition: all 0.4s ease-in-out;
+}
+
+a.bg-\[\#5fa8d3\]:hover {
+  background-position: 100% 0;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(95,168,211,0.4);
+}
 
