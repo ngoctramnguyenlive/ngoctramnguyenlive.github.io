@@ -125,10 +125,11 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header & Navigation - ĐÃ CẬP NHẬT FIXED HEADER COLOR LOGIC -->
+    <!-- Header & Navigation -->
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-xl font-bold tracking-tight logo-text text-white transition-colors duration-300">Ngọc Trầm</a>
+            <!-- ẨN navigation links trên mobile (md:flex để hiện trên desktop/tablet) -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="nav-link">Giới Thiệu</a>
                 <a href="#stats" class="nav-link">Đối Tác</a>
@@ -143,13 +144,13 @@
     </header>
 
     <main>
-        <!-- Hero Section - ĐÃ ÁP DỤNG STYLE VÀ ANIMATE MỚI -->
+        <!-- Hero Section (Responsive: 2 cột trên desktop, 1 cột trên mobile) -->
         <section id="home" class="hero-bg min-h-screen flex items-center overflow-hidden text-white relative">
             <div class="container mx-auto px-6 py-24">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     
-                    <!-- Text Column - Giữ nguyên logic hiệu ứng chữ của mẫu gốc -->
-                    <div class="text-center md:text-left">
+                    <!-- Text Column -->
+                    <div class="text-center md:text-left order-2 md:order-1">
                         <p class="text-2xl md:text-3xl font-light text-amber-300 hero-animated-text" style="animation-delay: 0.3s;">
                             Hey, Tôi là
                         </p>
@@ -169,12 +170,12 @@
                         </div>
                     </div>
 
-                    <!-- Image Column (Silhouette) -->
-                    <div class="flex justify-center md:justify-end" data-animation="fade-in-right">
+                    <!-- Image Column (Silhouette) - ĐẨY LÊN TRÊN CÙNG MOBILE (order-1) -->
+                    <div class="flex justify-center md:justify-end order-1 md:order-2 mb-10 md:mb-0" data-animation="fade-in-right">
                         <img 
                             src="https://placehold.co/400x500/000000/000000?text=Host" 
                             alt="Hình ảnh Host" 
-                            class="rounded-lg shadow-2xl w-full max-w-sm hero-animated-text"
+                            class="rounded-lg shadow-2xl w-full max-w-xs md:max-w-sm hero-animated-text"
                             style="animation-delay: 1.0s;"
                         >
                     </div>
@@ -206,7 +207,7 @@
             </div>
         </section>
 
-        <!-- Featured Portfolio Section -->
+        <!-- Featured Portfolio Section (Responsive: 3 cột trên desktop, 1 cột trên mobile) -->
         <section id="portfolio" class="py-20 bg-gray-50 overflow-hidden">
             <div class="container mx-auto px-6">
                 <h2 class="text-3xl md:text-4xl text-center mb-12" data-animation="fade-in-up">Khoảnh Khắc Livestream</h2>
