@@ -1,1 +1,31 @@
+:root{
+  --accent: #5fa8d3;
+  --beige: #FBF7F4;
+}
 
+/* font */
+body { font-family: 'Poppins', sans-serif; }
+
+/* clip card hover (extra) */
+.clip-card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 12px 30px rgba(15,23,36,0.08); }
+
+/* Host PNG single cutline shadow under the PNG to simulate a 'cut' */
+.host-cutline{
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: -12px;         /* adjust distance */
+  height: 18px;          /* thickness of the soft shadow line */
+  background: radial-gradient(closest-side, rgba(15,23,36,0.12), rgba(15,23,36,0.04) 60%, transparent 100%);
+  filter: blur(6px);
+  border-radius: 999px;
+  z-index: 10;
+  transform: translateY(6px);
+  pointer-events: none;
+}
+
+/* small screens: reduce partner logo size */
+@media (max-width:640px){
+  .host-cutline { bottom: -8px; height: 12px; filter: blur(4px); }
+  img { max-width: 100%; height: auto; }
+}
