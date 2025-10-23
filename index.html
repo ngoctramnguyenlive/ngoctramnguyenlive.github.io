@@ -1,339 +1,231 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio - Ngọc Trầm Nguyễn</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ngọc Trầm — Portfolio</title>
+
+  <!-- Tailwind CDN (fast prototyping) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    :root {
-      --background: #ffffff;
-      --text-primary: #111827;
-      --text-secondary: #6b7280;
-      --accent: #5fa8d3; /* Xanh pastel nhẹ */
-      --accent-light: #d9e8f0;
-      --beige: #f8f4ef; /* Be sáng */
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--background);
-      color: var(--text-primary);
-    }
-    h1, h2, h3 {
-      font-weight: 700;
-    }
 
-    /* --- NAVIGATION --- */
-    #main-header {
-      background-color: transparent;
-      transition: background-color 0.3s, border-bottom 0.3s;
-    }
-    #main-header.scrolled {
-      background-color: white;
-      border-bottom: 1px solid #e5e7eb;
-    }
-    .nav-link {
-      position: relative;
-      color: var(--text-primary);
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -4px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: var(--accent);
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover {
-      color: var(--accent);
-    }
-    .nav-link:hover::after {
-      width: 100%;
-    }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-    /* --- HERO --- */
-    .hero-bg {
-      background-color: var(--beige);
-    }
-    .hero-animated-text {
-      opacity: 0;
-      animation: fadeInUp 0.8s ease forwards;
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    /* --- SECTIONS --- */
-    [data-animation] {
-      opacity: 0;
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    [data-animation="fade-in-up"] {
-      transform: translateY(30px);
-    }
-    [data-animation].is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* --- CARD --- */
-    .clip-card {
-      background-color: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .clip-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05);
-    }
-
-    /* --- FOOTER --- */
-    footer {
-      background-color: #1f2937;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
+<body class="antialiased bg-[#FBF7F4] text-[#0F1724]">
 
-<body class="antialiased">
-  <!-- Header -->
-  <header id="main-header" class="fixed top-0 left-0 right-0 z-50">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a
-        href="#home"
-        class="text-xl font-bold tracking-tight text-gray-800"
-      >Ngọc Trầm</a>
-      <div class="hidden md:flex space-x-8">
-        <a href="#about" class="nav-link">Giới Thiệu</a>
-        <a href="#stats" class="nav-link">Đối Tác</a>
-        <a href="#portfolio" class="nav-link">Portfolio</a>
-        <a href="#schedule" class="nav-link">Phong Cách</a>
-        <a href="#contact" class="nav-link">Liên Hệ</a>
+  <!-- HEADER -->
+  <header id="main-header" class="fixed w-full z-50">
+    <nav class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20 py-4 flex items-center justify-between">
+      <a href="#home" class="font-semibold text-lg">Ngọc Trầm</a>
+
+      <div class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#about" class="hover:text-[#5fa8d3]">Giới Thiệu</a>
+        <a href="#partners" class="hover:text-[#5fa8d3]">Đối Tác</a>
+        <a href="#portfolio" class="hover:text-[#5fa8d3]">Portfolio</a>
+        <a href="#gallery" class="hover:text-[#5fa8d3]">Phong Cách</a>
+        <a href="#contact" class="hover:text-[#5fa8d3]">Liên Hệ</a>
       </div>
-      <a
-        href="#contact"
-        class="px-5 py-2 bg-[var(--accent)] text-white font-medium rounded-full hover:bg-[var(--text-primary)] transition-all duration-300 shadow-sm"
-        >Liên Hệ Hợp Tác</a
-      >
+
+      <a href="#contact" class="ml-4 px-4 py-2 rounded-full bg-[#5fa8d3] text-white text-sm shadow-sm">Liên Hệ Hợp Tác</a>
     </nav>
   </header>
 
-  <main>
+  <main class="pt-24">
     <!-- HERO -->
-    <section
-      id="home"
-      class="hero-bg min-h-screen flex items-center text-gray-900 overflow-hidden"
-    >
-      <div class="container mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div class="order-2 md:order-1 text-center md:text-left">
-          <p
-            class="text-xl text-[var(--accent)] mb-2 hero-animated-text"
-            style="animation-delay: 0.3s"
-          >
-            Hey, Tôi là
-          </p>
-          <h1
-            id="main-title"
-            class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight"
-          ></h1>
-          <p
-            class="text-lg text-gray-600 max-w-xl mx-auto md:mx-0 hero-animated-text"
-            style="animation-delay: 1s"
-          >
+    <section id="home" class="min-h-[72vh] flex items-center">
+      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <!-- text -->
+        <div class="order-2 md:order-1" data-aos="fade-right" data-aos-delay="100">
+          <p class="text-[#5fa8d3] mb-3 font-medium">Hey, Tôi là</p>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+            Livestream<br/>Sales<br/>Expert
+          </h1>
+          <p class="text-gray-600 max-w-xl mb-6">
             Chuyên Gia Livestream Bán Hàng | Tối ưu hóa Tỷ lệ Chuyển đổi | Xây dựng Niềm tin với Khách hàng
           </p>
-          <div class="mt-8 flex justify-center md:justify-start space-x-4">
-            <a
-              href="#portfolio"
-              class="px-6 py-2 bg-[var(--accent)] text-white rounded-full font-medium hover:bg-[var(--text-primary)] transition-all duration-300 transform hover:scale-105 hero-animated-text"
-              style="animation-delay: 1.2s"
-              >Xem Portfolio</a
-            >
-            <a
-              href="#contact"
-              class="px-6 py-2 border border-[var(--accent)] text-[var(--accent)] rounded-full font-medium hover:bg-[var(--accent)] hover:text-white transition-all duration-300 transform hover:scale-105 hero-animated-text"
-              style="animation-delay: 1.3s"
-              >Liên Hệ Ngay</a
-            >
+          <div class="flex gap-4">
+            <a href="#portfolio" class="px-5 py-2 rounded-full bg-[#5fa8d3] text-white">Xem Portfolio</a>
+            <a href="#contact" class="px-5 py-2 rounded-full border border-[#5fa8d3] text-[#5fa8d3]">Liên Hệ Ngay</a>
           </div>
         </div>
 
-        <div
-          class="flex justify-center md:justify-end order-1 md:order-2"
-          data-animation="fade-in-up"
-        >
-          <img
-            src="https://placehold.co/400x480/f8f4ef/555?text=Ngọc+Trầm"
-            alt="Ảnh Host"
-            class="rounded-xl shadow-lg max-w-xs md:max-w-sm"
-          />
+        <!-- PNG host w/ single shadow line -->
+        <div class="order-1 md:order-2 flex justify-center md:justify-end" data-aos="fade-left" data-aos-delay="200">
+          <div class="relative w-[260px] md:w-[360px]">
+            <img src="assets/host.png" alt="Ngọc Trầm" class="w-full relative z-20 drop-shadow-none" style="display:block;">
+            <!-- single line "cut" shadow -->
+            <div class="host-cutline"></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="py-20 bg-[var(--accent-light)]">
-      <div
-        class="container mx-auto px-6 text-center"
-        data-animation="fade-in-up"
-      >
-        <h2 class="text-3xl md:text-4xl mb-6 font-semibold">
-          Đối Tác Livestream Đáng Tin Cậy Của Bạn
-        </h2>
-        <p class="max-w-3xl mx-auto text-gray-700 text-lg leading-relaxed">
-          Xin chào các nhãn hàng, tôi là Ngọc Trầm. Với hơn 4 năm kinh nghiệm trong lĩnh vực livestream thương mại, tôi chuyên biến những buổi phát sóng trực tiếp thành các kênh bán hàng hiệu quả. Tôi không chỉ giới thiệu sản phẩm, mà còn xây dựng câu chuyện, tạo dựng niềm tin và thúc đẩy hành động mua hàng.
-        </p>
+    <section id="about" class="py-12">
+      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20 text-center" data-aos="fade-up">
+        <h2 class="text-2xl font-semibold mb-4">Đối Tác Livestream Đáng Tin Cậy Của Bạn</h2>
+        <p class="text-gray-700 max-w-3xl mx-auto">Xin chào các nhãn hàng, tôi là Ngọc Trầm. Với hơn 4 năm kinh nghiệm... (mô tả ngắn)</p>
       </div>
     </section>
 
-    <!-- PARTNERS -->
-    <section id="stats" class="py-20">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl text-center mb-10 font-semibold">
-          Đối Tác Đã Hợp Tác
-        </h2>
-        <div class="flex flex-wrap justify-center items-center gap-10">
-          <img src="https://placehold.co/140x60/ddd/333?text=Brand+A" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110" />
-          <img src="https://placehold.co/140x60/ddd/333?text=Brand+B" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110" />
-          <img src="https://placehold.co/140x60/ddd/333?text=Brand+C" class="h-12 grayscale hover:grayscale-0 transition-all duration-300 hover:scale-110" />
+    <!-- PARTNERS (12 logos) -->
+    <section id="partners" class="py-10 bg-white">
+      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20">
+        <h3 class="text-center text-xl font-semibold mb-8" data-aos="fade-up">Đối Tác Đã Hợp Tác</h3>
+
+        <!-- grid responsive -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
+          <!-- Repeat 12 items -->
+          <!-- Use images in assets/partners/partner1.png ... partner12.png -->
+          <!-- Add data-aos with staggered delays -->
+          <template id="partner-template">
+            <div class="flex items-center justify-center p-4 transition-transform transform hover:scale-105">
+              <img src="" alt="partner" class="max-h-12 grayscale hover:grayscale-0" />
+            </div>
+          </template>
+
+          <!-- Hardcode 12 for offline demo -->
+          <div data-aos="zoom-in" data-aos-delay="50"><img src="assets/partners/p1.png" alt="p1" class="max-h-12 grayscale" /></div>
+          <div data-aos="zoom-in" data-aos-delay="100"><img src="assets/partners/p2.png" alt="p2" class="max-h-12 grayscale" /></div>
+          <div data-aos="zoom-in" data-aos-delay="150"><img src="assets/partners/p3.png" alt="p3" class="max-h-12 grayscale" /></div>
+          <div data-aos="zoom-in" data-aos-delay="200"><img src="assets/partners/p4.png" alt="p4" class="max-h-12 grayscale" /></div>
+          <div data-aos="zoom-in" data-aos-delay="250"><img src="assets/partners/p5.png" alt="p5" class="max-h-12 grayscale" /></div>
+          <div data-aos="zoom-in" data-aos-delay="300"><img src="assets/partners/p6.png" alt="p6" class="max-h-12 grayscale" /></div>
+          <div data-aos="zoom-in" data-aos-delay="350"><img src="assets/partners/p7.png" alt="p7" class="max-h-12 grayscale" /></div>
+          <div data-aos="zoom-in" data-aos-delay="400"><img src="assets/partners/p8.png" alt="p8" class="max-h-12 grayscale" /></div>
+          <div data-aos="zoom-in" data-aos-delay="450"><img src="assets/partners/p9.png" alt="p9" class="max-h-12 grayscale" /></div>
+          <div data-aos="zoom-in" data-aos-delay="500"><img src="assets/partners/p10.png" alt="p10" class="max-h-12 grayscale" /></div>
+          <div data-aos="zoom-in" data-aos-delay="550"><img src="assets/partners/p11.png" alt="p11" class="max-h-12 grayscale" /></div>
+          <div data-aos="zoom-in" data-aos-delay="600"><img src="assets/partners/p12.png" alt="p12" class="max-h-12 grayscale" /></div>
         </div>
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="py-20 bg-[var(--accent-light)]">
-      <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl text-center mb-12 font-semibold">
-          Khoảnh Khắc Livestream
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="clip-card">
-            <div class="aspect-video">
-              <iframe
-                class="w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              ></iframe>
+    <!-- PORTFOLIO (6 videos) -->
+    <section id="portfolio" class="py-14">
+      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20">
+        <h3 class="text-2xl font-semibold text-center mb-8" data-aos="fade-up">Khoảnh Khắc Livestream</h3>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 6 video cards (replace src with actual youtube embed) -->
+          <div class="clip-card" data-aos="fade-up" data-aos-delay="80">
+            <div class="aspect-video overflow-hidden">
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-4">
-              <h3 class="font-semibold text-lg">Tương tác sôi nổi với 10k người xem</h3>
-              <p class="text-sm text-gray-500">Nhãn hàng: Beauty Glow</p>
+              <h4 class="font-semibold">Tương tác sôi nổi với 10k người xem</h4>
+              <p class="text-sm text-gray-500">Beauty Glow</p>
             </div>
           </div>
 
-          <div class="clip-card">
-            <div class="aspect-video">
-              <iframe
-                class="w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              ></iframe>
+          <div class="clip-card" data-aos="fade-up" data-aos-delay="130">
+            <div class="aspect-video overflow-hidden">
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-4">
-              <h3 class="font-semibold text-lg">Unbox và review sản phẩm công nghệ</h3>
-              <p class="text-sm text-gray-500">Nhãn hàng: TechHome</p>
+              <h4 class="font-semibold">Unbox và review</h4>
+              <p class="text-sm text-gray-500">TechHome</p>
             </div>
           </div>
 
-          <div class="clip-card">
-            <div class="aspect-video">
-              <iframe
-                class="w-full h-full"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              ></iframe>
+          <div class="clip-card" data-aos="fade-up" data-aos-delay="180">
+            <div class="aspect-video overflow-hidden">
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="p-4">
-              <h3 class="font-semibold text-lg">Chốt đơn "cháy máy" trong phiên live thời trang</h3>
-              <p class="text-sm text-gray-500">Nhãn hàng: Fashio VN</p>
+              <h4 class="font-semibold">Chốt đơn thời trang</h4>
+              <p class="text-sm text-gray-500">Fashio VN</p>
             </div>
+          </div>
+
+          <!-- 3 more -->
+          <div class="clip-card" data-aos="fade-up" data-aos-delay="230">
+            <div class="aspect-video overflow-hidden">
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Makeup demo</h4>
+              <p class="text-sm text-gray-500">Beauty Glow</p>
+            </div>
+          </div>
+
+          <div class="clip-card" data-aos="fade-up" data-aos-delay="280">
+            <div class="aspect-video overflow-hidden">
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Top seller highlight</h4>
+              <p class="text-sm text-gray-500">SkinCare+</p>
+            </div>
+          </div>
+
+          <div class="clip-card" data-aos="fade-up" data-aos-delay="330">
+            <div class="aspect-video overflow-hidden">
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="p-4">
+              <h4 class="font-semibold">Q&A khách hàng</h4>
+              <p class="text-sm text-gray-500">Brand X</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY (4 images) -->
+    <section id="gallery" class="py-12 bg-white">
+      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20">
+        <h3 class="text-2xl font-semibold text-center mb-8" data-aos="fade-up">Hình Ảnh Cá Nhân & Phong Cách</h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay="80">
+            <img src="assets/gallery/g1.jpg" alt="" class="w-full h-48 object-cover transform transition-transform hover:scale-105">
+          </div>
+          <div class="overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay="130">
+            <img src="assets/gallery/g2.jpg" alt="" class="w-full h-48 object-cover transform transition-transform hover:scale-105">
+          </div>
+          <div class="overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay="180">
+            <img src="assets/gallery/g3.jpg" alt="" class="w-full h-48 object-cover transform transition-transform hover:scale-105">
+          </div>
+          <div class="overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay="230">
+            <img src="assets/gallery/g4.jpg" alt="" class="w-full h-48 object-cover transform transition-transform hover:scale-105">
           </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="py-20 bg-[var(--beige)]">
-      <div class="container mx-auto px-6 text-center" data-animation="fade-in-up">
-        <h2 class="text-3xl md:text-4xl mb-6 font-semibold">Hãy Cùng Tạo Nên Một Chiến Dịch Bùng Nổ</h2>
-        <p class="max-w-2xl mx-auto text-gray-600 text-lg mb-8">
-          Tôi rất mong được lắng nghe về sản phẩm và mục tiêu của bạn. Hãy gửi email để chúng ta có thể thảo luận chi tiết hơn về kế hoạch hợp tác.
-        </p>
-        <a
-          href="mailto:business.ngoctram@email.com"
-          class="inline-block px-8 py-3 bg-[var(--accent)] text-white font-semibold rounded-full text-lg hover:bg-[var(--text-primary)] transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
-        >
-          business.ngoctram@email.com
-        </a>
+    <section id="contact" class="py-12">
+      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20 text-center" data-aos="fade-up">
+        <h3 class="text-2xl font-semibold mb-4">Hãy Cùng Tạo Nên Một Chiến Dịch Bùng Nổ</h3>
+        <p class="text-gray-700 mb-6">Tôi rất mong được lắng nghe về sản phẩm và mục tiêu của bạn.</p>
+        <a href="mailto:business.ngoctram@email.com"
+           class="inline-block px-6 py-2 rounded-full bg-[#5fa8d3] text-white">business.ngoctram@email.com</a>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="text-white py-8 text-center">
-    <div class="space-x-6 mb-4 text-gray-300">
-      <a href="#" class="hover:text-[var(--accent)]">Facebook</a>
-      <a href="#" class="hover:text-[var(--accent)]">TikTok</a>
-      <a href="#" class="hover:text-[var(--accent)]">YouTube</a>
-      <a href="#" class="hover:text-[var(--accent)]">Instagram</a>
-    </div>
-    <p class="text-gray-400 text-sm">
-      &copy; 2025 Ngọc Trầm Nguyễn. Mọi quyền được bảo lưu.
-    </p>
+  <footer class="py-8 text-center text-gray-500">
+    &copy; 2025 Ngọc Trầm Nguyễn. Mọi quyền được bảo lưu.
   </footer>
 
+  <!-- AOS & small script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Tạo hiệu ứng chữ hero
-    const mainTitle = document.getElementById('main-title');
-    const titleText = 'Livestream\nSales\nExpert';
-    const lines = titleText.split('\n');
-    let html = '';
-    lines.forEach((line, i) => {
-      const words = line.split(' ');
-      html += `<div>`;
-      words.forEach((w, j) => {
-        const delay = 0.5 + i * 0.3 + j * 0.1;
-        html += `<span class="inline-block mr-3 hero-animated-text" style="animation-delay:${delay}s;">${w}</span>`;
-      });
-      html += `</div>`;
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-cubic',
+      once: true,
+      mirror: false
     });
-    mainTitle.innerHTML = html;
-
-    // Hiệu ứng scroll hiện phần tử
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-visible');
-            observer.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    document.querySelectorAll('[data-animation]').forEach((el) => observer.observe(el));
-
-    // Đổi màu header khi cuộn
-    const header = document.getElementById('main-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 80) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
+    // small interactive: make clip-card hover elevate
+    document.querySelectorAll('.clip-card').forEach(c => {
+      c.classList.add('rounded-lg','border','border-gray-100','shadow-sm','overflow-hidden','transition-transform');
     });
   </script>
 </body>
