@@ -1,4 +1,4 @@
-/* 🌸 Import font tiếng Việt chuẩn, không lỗi dấu */
+/* 🌸 Font tiếng Việt chuẩn, không lỗi dấu */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 /* 🌈 Reset & cơ bản */
@@ -11,12 +11,12 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  color: #333;
+  color: #0F1724;
   background-color: #FBF7F4;
   line-height: 1.6;
 }
 
-/* 🪄 HERO section chiếm trọn 1 màn hình */
+/* 🪄 HERO section chiếm trọn màn hình đầu tiên */
 #home {
   height: 100vh;
   display: flex;
@@ -42,6 +42,7 @@ body {
 }
 
 #home h1 {
+  font-family: 'Inter', sans-serif;
   font-size: 3.5rem;
   font-weight: 800;
   color: #1a1a1a;
@@ -54,6 +55,7 @@ body {
   font-size: 1.125rem;
   color: #555;
   margin-bottom: 1.5rem;
+  max-width: 500px;
 }
 
 #home .btn {
@@ -78,21 +80,22 @@ body {
   filter: drop-shadow(0 10px 30px rgba(0,0,0,0.15));
 }
 
-/* 📖 Các section sau — GIỮ KÍCH THƯỚC BÌNH THƯỜNG */
+/* 📖 Các section sau — giữ kích thước bình thường */
 section {
   padding: 6rem 1.5rem;
 }
 
-#about, #partners, #videos, #gallery {
+#about, #partners, #portfolio, #gallery, #contact {
   background-color: white;
 }
 
 /* Tiêu đề các section */
-#about h2, #partners h2, #videos h2, #gallery h2 {
+#about h2, #partners h2, #portfolio h2, #gallery h2, #contact h2 {
   font-size: 2.25rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
   text-align: center;
+  color: #0F1724;
 }
 
 #about p {
@@ -102,7 +105,7 @@ section {
   text-align: center;
 }
 
-/* 🧩 Đối tác */
+/* 🧩 Lưới logo đối tác */
 .partners-grid {
   margin-top: 3rem;
   display: grid;
@@ -139,13 +142,7 @@ section {
   }
 }
 
-@media (max-width: 480px) {
-  .partners-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* 🎬 Video khoảnh khắc */
+/* 🎬 Video khoảnh khắc (9:16) */
 .video-grid {
   margin-top: 3rem;
   display: grid;
@@ -153,7 +150,7 @@ section {
   gap: 1.5rem;
 }
 
-.video-grid video {
+.video-grid iframe {
   width: 100%;
   aspect-ratio: 9/16;
   border-radius: 1rem;
@@ -180,7 +177,7 @@ section {
   transform: scale(1.03);
 }
 
-/* ✨ Hiệu ứng khi cuộn (AOS có sẵn, chỉ thêm mượt mà) */
+/* ✨ Hiệu ứng cuộn (AOS smoother) */
 [data-aos] {
   transition-property: transform, opacity !important;
   transition-duration: 0.8s !important;
@@ -199,7 +196,11 @@ section {
   }
 
   #home img {
-    max-width: 90%;
+    max-width: 85%;
     margin: 0 auto;
+  }
+
+  #home p {
+    margin: 0 auto 1.5rem;
   }
 }
