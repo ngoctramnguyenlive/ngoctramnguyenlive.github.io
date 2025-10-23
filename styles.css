@@ -1,31 +1,36 @@
-/* 🌸 Font tiếng Việt chuẩn, không lỗi dấu */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* 🌈 Reset & cơ bản */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', sans-serif;
+  background: #FBF7F4;
   color: #0F1724;
-  background-color: #FBF7F4;
   line-height: 1.6;
+  overflow: hidden; /* Ngăn tràn ngoài snap */
 }
 
-/* 🪄 HERO section chiếm trọn màn hình đầu tiên */
-#home {
+/* ⚡ Cuộn từng section */
+.scroll-container {
   height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  padding: 6rem 1.5rem;
+  background-color: white;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+}
+
+/* 🌸 HERO */
+#home {
   background-color: #FBF7F4;
-  position: relative;
-  overflow: hidden;
-  padding: 0 1.5rem;
 }
 
 #home .content {
@@ -34,78 +39,59 @@ body {
   gap: 3rem;
   max-width: 1200px;
   width: 100%;
+  margin: auto;
   align-items: center;
 }
 
-#home .text {
-  order: 2;
-}
-
 #home h1 {
-  font-family: 'Inter', sans-serif;
   font-size: 3.5rem;
   font-weight: 800;
-  color: #1a1a1a;
   line-height: 1.2;
   margin-bottom: 1rem;
-  letter-spacing: -0.5px;
 }
 
 #home p {
   font-size: 1.125rem;
   color: #555;
   margin-bottom: 1.5rem;
-  max-width: 500px;
 }
 
-#home .btn {
+.btn {
   display: inline-block;
-  background-color: #5fa8d3;
+  background: linear-gradient(135deg, #5fa8d3, #82c0e9);
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.8rem 1.8rem;
   border-radius: 9999px;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 20px rgba(95, 168, 211, 0.3);
+  transition: all 0.3s ease;
+  transform: translateY(0);
 }
 
-#home .btn:hover {
-  background-color: #3a7ca5;
+.btn:hover {
+  background: linear-gradient(135deg, #4d98c4, #69b4e3);
+  box-shadow: 0 10px 25px rgba(95, 168, 211, 0.4);
+  transform: translateY(-4px) scale(1.03);
 }
+
 
 /* Ảnh hero */
 #home img {
   width: 100%;
-  height: auto;
+  max-width: 400px;
   object-fit: contain;
   filter: drop-shadow(0 10px 30px rgba(0,0,0,0.15));
 }
 
-/* 📖 Các section sau — giữ kích thước bình thường */
-section {
-  padding: 6rem 1.5rem;
-}
-
-#about, #partners, #portfolio, #gallery, #contact {
-  background-color: white;
-}
-
-/* Tiêu đề các section */
-#about h2, #partners h2, #portfolio h2, #gallery h2, #contact h2 {
+/* Section title */
+h2 {
+  text-align: center;
   font-size: 2.25rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  text-align: center;
-  color: #0F1724;
 }
 
-#about p {
-  max-width: 800px;
-  margin: 0 auto;
-  color: #555;
-  text-align: center;
-}
-
-/* 🧩 Lưới logo đối tác */
+/* 🧩 Đối tác */
 .partners-grid {
   margin-top: 3rem;
   display: grid;
@@ -117,32 +103,25 @@ section {
 
 .partners-grid img {
   width: 120px;
-  height: auto;
-  filter: grayscale(1);
   opacity: 0.7;
+  filter: grayscale(1);
   transition: all 0.3s ease;
 }
 
 .partners-grid img:hover {
-  filter: grayscale(0);
   opacity: 1;
+  filter: grayscale(0);
   transform: scale(1.05);
 }
 
 /* Responsive đối tác */
-@media (max-width: 1024px) {
-  .partners-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
   .partners-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* 🎬 Video khoảnh khắc (9:16) */
+/* 🎥 Video */
 .video-grid {
   margin-top: 3rem;
   display: grid;
@@ -154,11 +133,10 @@ section {
   width: 100%;
   aspect-ratio: 9/16;
   border-radius: 1rem;
-  object-fit: cover;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* 🖼️ Bộ sưu tập ảnh */
+/* 🖼️ Gallery */
 .gallery-grid {
   margin-top: 3rem;
   display: grid;
@@ -169,7 +147,6 @@ section {
 .gallery-grid img {
   width: 100%;
   border-radius: 1rem;
-  object-fit: cover;
   transition: transform 0.3s ease;
 }
 
@@ -177,30 +154,12 @@ section {
   transform: scale(1.03);
 }
 
-/* ✨ Hiệu ứng cuộn (AOS smoother) */
-[data-aos] {
-  transition-property: transform, opacity !important;
-  transition-duration: 0.8s !important;
-  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1) !important;
-}
-
-/* 📱 Responsive hero */
+/* Responsive hero */
 @media (max-width: 768px) {
   #home .content {
     grid-template-columns: 1fr;
     text-align: center;
   }
-
-  #home h1 {
-    font-size: 2.25rem;
-  }
-
-  #home img {
-    max-width: 85%;
-    margin: 0 auto;
-  }
-
-  #home p {
-    margin: 0 auto 1.5rem;
-  }
+  #home h1 { font-size: 2.25rem; }
+  #home img { max-width: 85%; margin: 0 auto; }
 }
