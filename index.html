@@ -5,24 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ngọc Trầm — Portfolio</title>
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Font (Inter hỗ trợ tiếng Việt hoàn hảo) -->
+  <!-- Font & AOS -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- Custom CSS -->
+  <!-- CSS riêng -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="antialiased bg-[#FBF7F4] text-[#0F1724]">
+
+<body class="antialiased text-[#0F1724] bg-[#FBF7F4]">
 
   <!-- HEADER -->
-  <header id="main-header" class="fixed w-full z-50 bg-[#FBF7F4]/80 backdrop-blur-md">
+  <header id="main-header" class="fixed w-full z-50 bg-[#FBF7F4]/70 backdrop-blur-md shadow-sm">
     <nav class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20 py-4 flex items-center justify-between">
-      <a href="#home" class="font-semibold text-lg tracking-tight">Ngọc Trầm</a>
+      <a href="#home" class="font-semibold text-lg">Ngọc Trầm</a>
 
       <div class="hidden md:flex items-center gap-8 text-sm">
         <a href="#about" class="hover:text-[#5fa8d3]">Giới Thiệu</a>
@@ -32,140 +31,84 @@
         <a href="#contact" class="hover:text-[#5fa8d3]">Liên Hệ</a>
       </div>
 
-      <a href="#contact" class="ml-4 px-4 py-2 rounded-full bg-[#5fa8d3] text-white text-sm shadow-sm">
+      <a href="#contact" class="ml-4 px-4 py-2 rounded-full bg-[#5fa8d3] text-white text-sm shadow-sm hover:scale-105 transition">
         Liên Hệ Hợp Tác
       </a>
     </nav>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section id="home">
+  <!-- ⚡ Scroll container (quan trọng cho snap) -->
+  <main class="scroll-container">
+
+    <!-- 🌸 HERO -->
+    <section id="home" class="snap-start">
       <div class="content">
-        <!-- Text -->
-        <div class="text" data-aos="fade-right" data-aos-delay="100">
+        <div class="text" data-aos="fade-right">
           <p class="text-[#5fa8d3] mb-3 font-medium">Xin chào, Tôi là</p>
           <h1>Ngọc<br>Trầm,<br>Nguyễn</h1>
-          <p>Chuyên Gia Livestream Bán Hàng · Tối ưu hóa Tỷ lệ Chuyển đổi · Xây dựng Niềm tin với Khách hàng</p>
-          <div class="flex gap-4 mt-4">
+          <p>Chuyên Gia Livestream Bán Hàng | Tối ưu hóa Tỷ lệ Chuyển đổi | Xây dựng Niềm tin với Khách hàng</p>
+          <div class="flex gap-4 mt-4 justify-center md:justify-start">
             <a href="#portfolio" class="btn">Xem Portfolio</a>
-            <a href="#contact" class="px-5 py-2 rounded-full border border-[#5fa8d3] text-[#5fa8d3] font-medium">
-              Liên Hệ Ngay
-            </a>
+            <a href="#contact" class="btn" style="background:#fff;color:#5fa8d3;border:2px solid #5fa8d3;">Liên Hệ Ngay</a>
           </div>
         </div>
-
-        <!-- Hình ảnh -->
-        <div data-aos="fade-left" data-aos-delay="200">
+        <div data-aos="fade-left" class="flex justify-center">
           <img src="assets/host.png" alt="Ngọc Trầm">
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="mx-auto max-w-5xl text-center" data-aos="fade-up">
-        <h2>Đối Tác Livestream Đáng Tin Cậy</h2>
-        <p>
-          Xin chào các nhãn hàng, Tôi có kinh nghiệm thực chiến trong việc dẫn dắt các buổi livestream.
-          Nhiệt huyết học hỏi và phát triển bản thân, tôi mong muốn được làm việc trong một môi trường chuyên nghiệp,
-          năng động, thu thập những kiến thức quý báu và kinh nghiệm thực tế.
-        </p>
+    <!-- 💬 GIỚI THIỆU -->
+    <section id="about" class="snap-start">
+      <h2>Đối Tác Livestream Đáng Tin Cậy</h2>
+      <p>Xin chào các nhãn hàng, tôi có kinh nghiệm thực chiến trong việc dẫn dắt các buổi livestream. Nhiệt huyết học hỏi và phát triển bản thân, tôi mong muốn được làm việc trong môi trường chuyên nghiệp, năng động để thu thập kiến thức quý báu và kinh nghiệm thực tế.</p>
+    </section>
+
+    <!-- 🤝 ĐỐI TÁC -->
+    <section id="partners" class="snap-start">
+      <h2>Đối Tác Đã Hợp Tác</h2>
+      <div class="partners-grid">
+        <img src="assets/partners/p1.png" alt="">
+        <img src="assets/partners/p2.png" alt="">
+        <img src="assets/partners/p3.png" alt="">
+        <img src="assets/partners/p4.png" alt="">
+        <img src="assets/partners/p5.png" alt="">
+        <img src="assets/partners/p6.png" alt="">
+        <img src="assets/partners/p7.png" alt="">
+        <img src="assets/partners/p8.png" alt="">
+        <img src="assets/partners/p9.png" alt="">
+        <img src="assets/partners/p10.png" alt="">
+        <img src="assets/partners/p11.png" alt="">
+        <img src="assets/partners/p12.png" alt="">
       </div>
     </section>
 
-    <!-- PARTNERS -->
-    <section id="partners">
-      <div class="mx-auto max-w-7xl text-center" data-aos="fade-up">
-        <h2 class="text-[#5fa8d3] mb-8">Đối Tác Đã Hợp Tác</h2>
-        <div class="partners-grid">
-          <img src="assets/partners/p1.png" alt="Đối tác 1">
-          <img src="assets/partners/p2.png" alt="Đối tác 2">
-          <img src="assets/partners/p3.png" alt="Đối tác 3">
-          <img src="assets/partners/p4.png" alt="Đối tác 4">
-          <img src="assets/partners/p5.png" alt="Đối tác 5">
-          <img src="assets/partners/p6.png" alt="Đối tác 6">
-          <img src="assets/partners/p7.png" alt="Đối tác 7">
-          <img src="assets/partners/p8.png" alt="Đối tác 8">
-          <img src="assets/partners/p9.png" alt="Đối tác 9">
-          <img src="assets/partners/p10.png" alt="Đối tác 10">
-          <img src="assets/partners/p11.png" alt="Đối tác 11">
-          <img src="assets/partners/p12.png" alt="Đối tác 12">
-        </div>
+    <!-- 🎥 PORTFOLIO -->
+    <section id="portfolio" class="snap-start">
+      <h2>Khoảnh Khắc Livestream</h2>
+      <div class="video-grid">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="bg-[#FBF7F4]">
-      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20">
-        <h2 class="text-center mb-8" data-aos="fade-up">Khoảnh Khắc Livestream</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div data-aos="fade-up" data-aos-delay="80">
-            <div class="relative w-full aspect-[9/16] overflow-hidden rounded-xl shadow-lg">
-              <iframe class="absolute inset-0 w-full h-full object-cover"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Livestream highlight"
-                allowfullscreen loading="lazy">
-              </iframe>
-            </div>
-            <div class="p-4">
-              <h4 class="font-semibold">Tương tác sôi nổi với 10k người xem</h4>
-              <p class="text-sm text-gray-500">Beauty Glow</p>
-            </div>
-          </div>
-
-          <div data-aos="fade-up" data-aos-delay="150">
-            <div class="relative w-full aspect-[9/16] overflow-hidden rounded-xl shadow-lg">
-              <iframe class="absolute inset-0 w-full h-full object-cover"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                allowfullscreen loading="lazy">
-              </iframe>
-            </div>
-            <div class="p-4">
-              <h4 class="font-semibold">Unbox và review sản phẩm mới</h4>
-              <p class="text-sm text-gray-500">TechHome</p>
-            </div>
-          </div>
-
-          <div data-aos="fade-up" data-aos-delay="200">
-            <div class="relative w-full aspect-[9/16] overflow-hidden rounded-xl shadow-lg">
-              <iframe class="absolute inset-0 w-full h-full object-cover"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                allowfullscreen loading="lazy">
-              </iframe>
-            </div>
-            <div class="p-4">
-              <h4 class="font-semibold">Chốt đơn thời trang ấn tượng</h4>
-              <p class="text-sm text-gray-500">Fashion VN</p>
-            </div>
-          </div>
-        </div>
+    <!-- 🖼️ GALLERY -->
+    <section id="gallery" class="snap-start">
+      <h2>Hình Ảnh Cá Nhân & Phong Cách</h2>
+      <div class="gallery-grid">
+        <img src="assets/gallery/g1.jpg" alt="">
+        <img src="assets/gallery/g2.jpg" alt="">
+        <img src="assets/gallery/g3.jpg" alt="">
+        <img src="assets/gallery/g4.jpg" alt="">
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section id="gallery">
-      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20">
-        <h2 class="text-center mb-8" data-aos="fade-up">Hình Ảnh Cá Nhân & Phong Cách</h2>
-        <div class="gallery-grid" data-aos="fade-up">
-          <img src="assets/gallery/g1.jpg" alt="">
-          <img src="assets/gallery/g2.jpg" alt="">
-          <img src="assets/gallery/g3.jpg" alt="">
-          <img src="assets/gallery/g4.jpg" alt="">
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="mx-auto max-w-6xl text-center" data-aos="fade-up">
-        <h2>Hãy Cùng Tạo Nên Một Chiến Dịch Bùng Nổ</h2>
-        <p class="text-gray-700 mb-6">Tôi rất mong được lắng nghe về sản phẩm và mục tiêu của bạn.</p>
-        <a href="mailto:business.ngoctram@email.com"
-           class="inline-block px-6 py-2 rounded-full bg-[#5fa8d3] text-white">
-           business.ngoctram@email.com
-        </a>
-      </div>
+    <!-- ✉️ CONTACT -->
+    <section id="contact" class="snap-start">
+      <h2>Hãy Cùng Tạo Nên Một Chiến Dịch Bùng Nổ</h2>
+      <p>Tôi rất mong được lắng nghe về sản phẩm và mục tiêu của bạn.</p>
+      <a href="mailto:business.ngoctram@email.com" class="btn">business.ngoctram@email.com</a>
     </section>
   </main>
 
@@ -173,14 +116,10 @@
     &copy; 2025 Ngọc Trầm Nguyễn. Mọi quyền được bảo lưu.
   </footer>
 
-  <!-- AOS & Script -->
+  <!-- AOS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 700,
-      easing: 'ease-out-cubic',
-      once: true
-    });
+    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true });
   </script>
 </body>
 </html>
