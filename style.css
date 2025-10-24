@@ -1,218 +1,67 @@
-/* 🌸 Font tiếng Việt không lỗi dấu */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root {
+  --accent: #5fa8d3;
+  --beige: #FBF7F4;
+}
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* General */
+body {
+  font-family: 'Poppins', sans-serif;
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  color: #333;
-  background-color: #FBF7F4;
-  line-height: 1.6;
+/* Hero image shadow cutline */
+.host-cutline {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: -12px;
+  height: 18px;
+  background: radial-gradient(closest-side, rgba(15,23,36,0.12), rgba(15,23,36,0.04) 60%, transparent 100%);
+  filter: blur(6px);
+  border-radius: 999px;
+  z-index: 10;
+  pointer-events: none;
 }
 
-/* 🪄 HERO full màn hình */
-#home {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #FBF7F4;
-  position: relative;
+/* Clip card hover */
+.clip-card {
+  border: 1px solid #f2f2f2;
+  border-radius: 16px;
   overflow: hidden;
-  padding: 0 1.5rem;
-}
-
-#home .content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  max-width: 1200px;
-  width: 100%;
-  align-items: center;
-}
-
-#home .image img {
-  width: 100%;
-  max-width: 480px;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.15));
-}
-
-#home .text h1 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #1a1a1a;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-
-#home .text p {
-  font-size: 1.125rem;
-  color: #555;
-  margin-bottom: 1.5rem;
-}
-
-#home .buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.btn {
-  display: inline-block;
-  background-color: #5fa8d3;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  text-decoration: none;
   transition: all 0.3s ease;
+  background: white;
+}
+.clip-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(15,23,36,0.08);
 }
 
-.btn:hover {
-  background-color: #3a7ca5;
-  transform: translateY(-2px);
+/* Buttons */
+a.bg-\[\#5fa8d3\] {
+  background: linear-gradient(90deg, #5fa8d3, #6fc8d9);
+  background-size: 200% 100%;
+  transition: all 0.4s ease-in-out;
 }
-
-.btn-outline {
-  background-color: transparent;
-  border: 2px solid #5fa8d3;
-  color: #5fa8d3;
+a.bg-\[\#5fa8d3\]:hover {
+  background-position: 100% 0;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(95,168,211,0.4);
 }
-
-.btn-outline:hover {
+a.border:hover {
   background-color: #5fa8d3;
-  color: white;
+  color: white !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(95,168,211,0.25);
 }
 
-/* Các section sau giữ bình thường */
-section {
-  padding: 6rem 1.5rem;
-}
-
-#about, #partners, #videos, #gallery {
-  background-color: white;
-}
-
-/* Tiêu đề */
-#about h2, #partners h2, #videos h2, #gallery h2 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-/* Giới thiệu */
-#about p {
-  max-width: 800px;
-  margin: 0 auto;
-  color: #555;
-  text-align: center;
-}
-
-/* 🧩 Đối tác */
-.partners-grid {
-  margin-top: 3rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  justify-items: center;
-  align-items: center;
-}
-
-.partners-grid img {
-  width: 120px;
-  height: auto;
-  filter: grayscale(1);
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
-
-.partners-grid img:hover {
-  filter: grayscale(0);
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-/* Responsive đối tác */
-@media (max-width: 1024px) {
-  .partners-grid {
-    grid-template-columns: repeat(3, 1fr);
+/* Responsive */
+@media (max-width: 640px) {
+  .host-cutline {
+    bottom: -8px;
+    height: 12px;
+    filter: blur(4px);
   }
-}
-
-@media (max-width: 768px) {
-  .partners-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* 🎬 Video */
-.video-grid {
-  margin-top: 3rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.video-grid video {
-  width: 100%;
-  aspect-ratio: 9/16;
-  border-radius: 1rem;
-  object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* 🖼️ Gallery */
-.gallery-grid {
-  margin-top: 3rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
-}
-
-.gallery-grid img {
-  width: 100%;
-  border-radius: 1rem;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.03);
-}
-
-/* 📱 Responsive HERO */
-@media (max-width: 768px) {
-  #home .content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  #home .image {
-    order: 1;
-  }
-
-  #home .text {
-    order: 2;
-  }
-
-  #home h1 {
-    font-size: 2.25rem;
-  }
-
-  #home .buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #home img {
-    max-width: 90%;
-    margin: 0 auto;
+  h1 {
+    font-size: 2.5rem;
   }
 }
