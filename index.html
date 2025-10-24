@@ -1,94 +1,248 @@
-<!DOCTYPE html>
-<html lang="vi">
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ngọc Trâm Nguyễn</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ngọc Trầm — Portfolio</title>
+
+  <!-- Tailwind CDN (fast prototyping) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="antialiased bg-[#FBF7F4] text-[#0F1724]">
 
-  <!-- 🌸 SECTION HERO -->
-  <section id="home">
-    <div class="content">
-      <div class="image">
-        <img src="images/profile.png" alt="Ngọc Trâm Nguyễn">
-      </div>
-      <div class="text">
-        <h1>Ngọc Trâm Nguyễn</h1>
-        <p>Chuyên gia livestream bán hàng - đào tạo và xây dựng thương hiệu cá nhân online.</p>
-        <div class="buttons">
-          <a href="#portfolio" class="btn">Xem Portfolio</a>
-          <a href="#contact" class="btn btn-outline">Liên hệ ngay</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- HEADER -->
+  <header id="main-header" class="fixed w-full z-50">
+    <nav class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20 py-4 flex items-center justify-between">
+      <a href="#home" class="font-semibold text-lg">Ngọc Trầm</a>
 
-  <!-- 🌼 GIỚI THIỆU -->
-  <section id="about">
-    <h2>Giới thiệu</h2>
-    <p>Ngọc Trâm Nguyễn là chuyên gia trong lĩnh vực livestream bán hàng, giúp hàng nghìn cá nhân xây dựng thương hiệu cá nhân và chốt đơn hiệu quả.</p>
-  </section>
+      <div class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#about" class="hover:text-[#5fa8d3]">Giới Thiệu</a>
+        <a href="#partners" class="hover:text-[#5fa8d3]">Đối Tác</a>
+        <a href="#portfolio" class="hover:text-[#5fa8d3]">Portfolio</a>
+        <a href="#gallery" class="hover:text-[#5fa8d3]">Phong Cách</a>
+        <a href="#contact" class="hover:text-[#5fa8d3]">Liên Hệ</a>
+      </div>
 
-  <!-- 🌟 ĐỐI TÁC -->
-  <section id="partners">
-    <h2>Đối tác</h2>
-    <div class="partners-grid">
-      <img src="images/p1.png" alt="">
-      <img src="images/p2.png" alt="">
-      <img src="images/p3.png" alt="">
-      <img src="images/p4.png" alt="">
-      <img src="images/p5.png" alt="">
-      <img src="images/p6.png" alt="">
-      <img src="images/p7.png" alt="">
-      <img src="images/p8.png" alt="">
-      <img src="images/p9.png" alt="">
-      <img src="images/p10.png" alt="">
-      <img src="images/p11.png" alt="">
-      <img src="images/p12.png" alt="">
-    </div>
-  </section>
+      <a href="#contact" class="ml-4 px-4 py-2 rounded-full bg-[#5fa8d3] text-white text-sm shadow-sm">Liên Hệ Hợp Tác</a>
+    </nav>
+  </header>
 
-  <!-- 🎬 VIDEO -->
-  <section id="videos">
-    <h2>Khoảnh khắc nổi bật</h2>
-    <div class="video-grid">
-      <video src="videos/v1.mp4" autoplay muted loop></video>
-      <video src="videos/v2.mp4" autoplay muted loop></video>
-      <video src="videos/v3.mp4" autoplay muted loop></video>
-    </div>
-  </section>
+  <main class="pt-24">
+    <!-- HERO -->
+    <section id="home" class="min-h-[72vh] flex items-center">
+      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <!-- text -->
+        <div class="order-2 md:order-1" data-aos="fade-right" data-aos-delay="100">
+          <p class="text-[#5fa8d3] mb-3 font-medium">Xin chào, Tôi là</p>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+            Ngọc<br/>Trầm,<br/>Nguyễn
+          </h1>
+          <p class="text-gray-600 max-w-xl mb-6">
+            Chuyên Gia Livestream Bán Hàng | Tối ưu hóa Tỷ lệ Chuyển đổi | Xây dựng Niềm tin với Khách hàng
+          </p>
+          <div class="flex gap-4">
+            <a href="#portfolio" class="px-5 py-2 rounded-full bg-[#5fa8d3] text-white">Xem Portfolio</a>
+            <a href="#contact" class="px-5 py-2 rounded-full border border-[#5fa8d3] text-[#5fa8d3]">Liên Hệ Ngay</a>
+          </div>
+        </div>
 
-  <!-- 🖼️ GALLERY -->
-  <section id="gallery">
-    <h2>Bộ sưu tập</h2>
-    <div class="gallery-grid">
-      <img src="images/g1.jpg" alt="">
-      <img src="images/g2.jpg" alt="">
-      <img src="images/g3.jpg" alt="">
-      <img src="images/g4.jpg" alt="">
-    </div>
-  </section>
+        <!-- PNG host w/ single shadow line -->
+        <div class="order-1 md:order-2 flex justify-center md:justify-end" data-aos="fade-left" data-aos-delay="200">
+          <div class="relative w-[260px] md:w-[360px]">
+            <img src="assets/host.png" alt="Ngọc Trầm" class="w-full relative z-20 drop-shadow-none" style="display:block;">
+            <!-- single line "cut" shadow -->
+            <div class="host-cutline"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- 📞 LIÊN HỆ MỚI -->
-  <section id="contact">
-    <div class="contact-content">
-      <h2>Liên hệ Hợp tác</h2>
-      <p>Bạn đã sẵn sàng để tạo nên một chiến dịch livestream bùng nổ? Hãy kết nối với Trâm ngay hôm nay!</p>
-      <div class="contact-info">
-        <a href="mailto:contact@ngoctram.com" class="contact-item">
-          <strong>Email:</strong> contact@ngoctram.com
-        </a>
-        <a href="tel:+84901234567" class="contact-item">
-          <strong>Điện thoại:</strong> +84 901 234 567
-        </a>
-        <a href="https://zalo.me/0901234567" target="_blank" class="contact-item">
-          <strong>Zalo:</strong> Ngoc Tram Nguyen
-        </a>
-      </div>
-    </div>
-  </section>
+    <!-- ABOUT -->
+    <section id="about" class="py-12">
+      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20 text-center" data-aos="fade-up">
+        <h2 class="text-2xl font-semibold mb-4">Đối Tác Livestream Đáng Tin Cậy</h2>
+        <p class="text-gray-700 max-w-3xl mx-auto">Xin chào các nhãn hàng, Tôi có kinh nghiệm thực chiến trong việc dẫn dắt các buổi livestream.
+          Nhiệt huyết học hỏi và phát triển bản thân, tôi mong muốn được làm việc trong một môi trường chuyên nghiệp, năng động, thu thập
+những kiến thức quý báu và kinh nghiệm thực tế.
+        </p>
+      </div>
+    </section>
 
+    <!-- PARTNERS (12 logos) -->
+<section id="partners" class="py-20 mt-16 bg-white">
+  <div class="mx-auto max-w-7xl px-8 md:px-16 text-center space-y-10">
+    <h3 class="text-3xl font-bold mb-12 text-[#5fa8d3]" data-aos="fade-up">Đối Tác Đã Hợp Tác</h3>
+      
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-10 place-items-center">
+      <img src="assets/partners/p1.png" alt="Đối tác 1" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="100">
+      <img src="assets/partners/p2.png" alt="Đối tác 2" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="150">
+      <img src="assets/partners/p3.png" alt="Đối tác 3" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="200">
+      <img src="assets/partners/p4.png" alt="Đối tác 4" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="250">
+
+      <img src="assets/partners/p5.png" alt="Đối tác 5" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="300">
+      <img src="assets/partners/p6.png" alt="Đối tác 6" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="350">
+      <img src="assets/partners/p7.png" alt="Đối tác 7" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="400">
+      <img src="assets/partners/p8.png" alt="Đối tác 8" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="450">
+
+      <img src="assets/partners/p9.png" alt="Đối tác 9" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="500">
+      <img src="assets/partners/p10.png" alt="Đối tác 10" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="550">
+      <img src="assets/partners/p11.png" alt="Đối tác 11" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="600">
+      <img src="assets/partners/p12.png" alt="Đối tác 12" class="h-16 opacity-80 hover:opacity-100 transition-all duration-300" data-aos="zoom-in" data-aos-delay="650">
+    </div>
+  </div>
+</section>
+
+    <!-- PORTFOLIO (6 videos - vertical 9:16) -->
+<section id="portfolio" class="py-14 bg-[#FBF7F4]">
+  <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20">
+    <h3 class="text-2xl font-semibold text-center mb-10" data-aos="fade-up">
+      Khoảnh Khắc Livestream
+    </h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Video item -->
+      <div class="clip-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="relative w-full aspect-[9/16] overflow-hidden rounded-xl shadow-lg">
+          <iframe class="absolute inset-0 w-full h-full object-cover"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Livestream highlight"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <div class="p-4">
+          <h4 class="font-semibold">Tương tác sôi nổi với 10k người xem</h4>
+          <p class="text-sm text-gray-500">Beauty Glow</p>
+        </div>
+      </div>
+
+      <div class="clip-card" data-aos="fade-up" data-aos-delay="130">
+        <div class="relative w-full aspect-[9/16] overflow-hidden rounded-xl shadow-lg">
+          <iframe class="absolute inset-0 w-full h-full object-cover"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <div class="p-4">
+          <h4 class="font-semibold">Unbox và review sản phẩm mới</h4>
+          <p class="text-sm text-gray-500">TechHome</p>
+        </div>
+      </div>
+
+      <div class="clip-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="relative w-full aspect-[9/16] overflow-hidden rounded-xl shadow-lg">
+          <iframe class="absolute inset-0 w-full h-full object-cover"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <div class="p-4">
+          <h4 class="font-semibold">Chốt đơn thời trang ấn tượng</h4>
+          <p class="text-sm text-gray-500">Fashion VN</p>
+        </div>
+      </div>
+
+      <div class="clip-card" data-aos="fade-up" data-aos-delay="230">
+        <div class="relative w-full aspect-[9/16] overflow-hidden rounded-xl shadow-lg">
+          <iframe class="absolute inset-0 w-full h-full object-cover"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <div class="p-4">
+          <h4 class="font-semibold">Makeup demo chuyên nghiệp</h4>
+          <p class="text-sm text-gray-500">Beauty Glow</p>
+        </div>
+      </div>
+
+      <div class="clip-card" data-aos="fade-up" data-aos-delay="280">
+        <div class="relative w-full aspect-[9/16] overflow-hidden rounded-xl shadow-lg">
+          <iframe class="absolute inset-0 w-full h-full object-cover"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <div class="p-4">
+          <h4 class="font-semibold">Highlight top seller</h4>
+          <p class="text-sm text-gray-500">SkinCare+</p>
+        </div>
+      </div>
+
+      <div class="clip-card" data-aos="fade-up" data-aos-delay="330">
+        <div class="relative w-full aspect-[9/16] overflow-hidden rounded-xl shadow-lg">
+          <iframe class="absolute inset-0 w-full h-full object-cover"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <div class="p-4">
+          <h4 class="font-semibold">Q&A trực tiếp cùng khách hàng</h4>
+          <p class="text-sm text-gray-500">Brand X</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- GALLERY (4 images) -->
+    <section id="gallery" class="py-12 bg-white">
+      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20">
+        <h3 class="text-2xl font-semibold text-center mb-8" data-aos="fade-up">Hình Ảnh Cá Nhân & Phong Cách</h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay="80">
+            <img src="assets/gallery/g1.jpg" alt="" class="w-full h-48 object-cover transform transition-transform hover:scale-105">
+          </div>
+          <div class="overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay="130">
+            <img src="assets/gallery/g2.jpg" alt="" class="w-full h-48 object-cover transform transition-transform hover:scale-105">
+          </div>
+          <div class="overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay="180">
+            <img src="assets/gallery/g3.jpg" alt="" class="w-full h-48 object-cover transform transition-transform hover:scale-105">
+          </div>
+          <div class="overflow-hidden rounded-lg" data-aos="zoom-in" data-aos-delay="230">
+            <img src="assets/gallery/g4.jpg" alt="" class="w-full h-48 object-cover transform transition-transform hover:scale-105">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-12">
+      <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-20 text-center" data-aos="fade-up">
+        <h3 class="text-2xl font-semibold mb-4">Hãy Cùng Tạo Nên Một Chiến Dịch Bùng Nổ</h3>
+        <p class="text-gray-700 mb-6">Tôi rất mong được lắng nghe về sản phẩm và mục tiêu của bạn.</p>
+        <a href="mailto:business.ngoctram@email.com"
+           class="inline-block px-6 py-2 rounded-full bg-[#5fa8d3] text-white">business.ngoctram@email.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 text-center text-gray-500">
+    &copy; 2025 Ngọc Trầm Nguyễn. Mọi quyền được bảo lưu.
+  </footer>
+
+  <!-- AOS & small script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-cubic',
+      once: true,
+      mirror: false
+    });
+    // small interactive: make clip-card hover elevate
+    document.querySelectorAll('.clip-card').forEach(c => {
+      c.classList.add('rounded-lg','border','border-gray-100','shadow-sm','overflow-hidden','transition-transform');
+    });
+  </script>
 </body>
 </html>
