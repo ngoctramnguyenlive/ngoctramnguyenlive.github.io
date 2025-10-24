@@ -92,3 +92,51 @@ header a.bg-\[\#5fa8d3\]:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 14px rgba(95,168,211,0.3);
 }
+/* ----- Desktop layout tuning for first hero section ----- */
+@media (min-width: 1024px) {
+  #home {
+    height: 100vh; /* full screen height */
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  #home > .mx-auto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 6rem; /* space between text & image */
+  }
+
+  #home h1 {
+    font-size: 4.5rem; /* slightly smaller than 6xl */
+    line-height: 1.1;
+  }
+
+  #home p.text-gray-600 {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  /* Hero image alignment */
+  #home .order-1.md\:order-2 {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #home .order-1.md\:order-2 img {
+    width: 420px;
+    max-width: 100%;
+  }
+
+  /* Subtle entrance balance */
+  #home [data-aos="fade-right"] {
+    padding-left: 1rem;
+  }
+
+  #home [data-aos="fade-left"] {
+    padding-right: 1rem;
+  }
+}
+
