@@ -204,3 +204,58 @@ header a.bg-\[\#5fa8d3\]:hover {
   }
 }
 
+/* PARTNER LOGO GRID */
+#partners {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+#partners img {
+  max-width: 140px;
+  width: 100%;
+  height: auto;
+  filter: grayscale(0%);
+  transition: all 0.3s ease;
+}
+
+#partners img:hover {
+  transform: scale(1.05);
+}
+
+/* HERO TEXT & BUTTON FIX ON MOBILE */
+@media (max-width: 768px) {
+  #home h1 {
+    white-space: nowrap;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  #home .flex {
+    justify-content: center;
+  }
+}
+
+/* FIX WRAPPING IN TITLES & TEXT */
+@media (max-width: 768px) {
+  section h2,
+  section p {
+    word-break: keep-all;
+    white-space: normal;
+  }
+
+  section#partners h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  section#partners p {
+    text-align: center;
+    padding: 0 1rem;
+  }
+}
