@@ -260,3 +260,55 @@ text-align: center;
 padding: 0 1rem;
 }
 }
+/* HERO section */
+#home {
+  background-color: #FBF7F4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#home img {
+  transition: transform 0.6s ease;
+}
+
+#home img:hover {
+  transform: scale(1.03);
+}
+
+/* Đảm bảo text và ảnh nằm giữa */
+#home .grid {
+  align-items: center;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  #home {
+    text-align: center;
+    padding: 4rem 1.5rem;
+  }
+
+  #home .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  #home h1 {
+    font-size: 2.3rem;
+    line-height: 1.2;
+  }
+
+  #home p {
+    font-size: 1rem;
+  }
+
+  #home img {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  #home .flex.gap-4 {
+    justify-content: center;
+  }
+}
