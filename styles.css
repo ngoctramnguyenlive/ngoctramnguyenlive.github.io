@@ -259,3 +259,52 @@ header a.bg-\[\#5fa8d3\]:hover {
     padding: 0 1rem;
   }
 }
+
+/* HERO layout cơ bản */
+#home {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #FBF7F4;
+}
+
+#home img {
+  transition: transform 0.5s ease;
+}
+
+#home img:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive cho mobile */
+@media (max-width: 768px) {
+  #home {
+    text-align: center;
+    padding: 4rem 1.5rem;
+  }
+
+  #home .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  #home h1 {
+    font-size: 2.25rem;
+  }
+
+  #home p {
+    font-size: 1rem;
+  }
+
+  #home .flex.gap-4 {
+    justify-content: center;
+  }
+
+  #home img {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
